@@ -24,33 +24,34 @@ rolling in wealth."""
 """ Дані у строці adwentures_of_tom_sawer розбиті випадковим чином, через помилку.
 треба замінити кінець абзацу на пробіл .replace("\n", " ")"""
 
-new_adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace("\n", " ")
-print(new_adwentures_of_tom_sawer)
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace("\n", " ")
+print(adwentures_of_tom_sawer)
 
 # task 02 ==
 """ Замініть .... на пробіл
 """
-new_space = adwentures_of_tom_sawer.replace("....", " ")
-print(new_space)
+adwentures_of_tom_sawer = adwentures_of_tom_sawer.replace("....", " ")
+print(adwentures_of_tom_sawer)
 # task 03 ==
 """ Зробіть так, щоб у тексті було не більше одного пробілу між словами.
 """
-join_method = ' '.join(adwentures_of_tom_sawer.split())
+adwentures_of_tom_sawer = ' '.join(adwentures_of_tom_sawer.split())
+print(adwentures_of_tom_sawer)
 
 # task 04
 """ Виведіть, скількі разів у тексті зустрічається літера "h"
 """
 count_h = adwentures_of_tom_sawer.count("h")
-print('count_h')
+print(count_h)
 
 # task 05
 """ Виведіть, скільки слів у тексті починається з Великої літери?
 """
 count_upper = 0
-for word in adwentures_of_tom_sawer:
+for word in adwentures_of_tom_sawer.split():
     if word[0].isupper():
         count_upper = count_upper + 1
-    print(count_upper)
+print(count_upper)
 
 
 # task 06
@@ -78,7 +79,12 @@ print(forth)
 # task 09
 """ Перевірте чи починається якесь речення з "By the time".
 """
-start_with = adwentures_of_tom_sawer.startswith("By the time")
+start_with = False
+for sentence in adwentures_of_tom_sawer_sentences:
+    if sentence.startswith("By the time"):
+        start_with = True
+        break
+
 print(start_with)
 
 # task 10

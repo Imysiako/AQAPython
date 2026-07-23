@@ -57,7 +57,8 @@ print(count_upper)
 # task 06
 """ Виведіть позицію, на якій слово Tom зустрічається вдруге
 """
-tom_2 = adwentures_of_tom_sawer.rfind("Tom")
+tom_1 = adwentures_of_tom_sawer.find("Tom")
+tom_2 = adwentures_of_tom_sawer.find("Tom", tom_1 + 1)
 print(tom_2)
 
 

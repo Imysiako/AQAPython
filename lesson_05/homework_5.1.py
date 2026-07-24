@@ -29,7 +29,6 @@ people_records[1], people_records[5] = people_records[5], people_records[1]
 print(people_records)
 
 check_result = (people_records[6][2] >= 30 and
-people_records[10][2] >= 30 and
-people_records[13][2] >= 30)
+                people_records[10][2] >= 30 and
+                people_records[13][2] >= 30)
 print(check_result)
-

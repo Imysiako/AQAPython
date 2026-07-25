@@ -53,5 +53,3 @@ for car, data in car_data.items():
         result.append((data[4],car, data[3], data[2], data[1], data[0] ))
 result.sort()
 print(result[:5])
-
-# for ==ted_car_data = sorted(car_data[4])

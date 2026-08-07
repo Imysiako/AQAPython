@@ -42,9 +42,9 @@ def incorrect(word):
     revers = ""
     for k in word:
         revers = k + revers
-    print(revers)
+    return revers
 
-incorrect("plant")
+print(incorrect("plant"))
 
 # task 5
 # """  Написати функцію, яка приймає список слів та повертає найдовше слово у списку.

@@ -6,8 +6,10 @@ def even_numbers(n):
         yield num
         num += 2
 
+
 for item in even_numbers(10):
     print(item)
+
 
 def fibonacci_generator(max_v):
     a, b = 0, 1
@@ -15,8 +17,10 @@ def fibonacci_generator(max_v):
         yield a
         a, b = b, a + b
 
+
 for fibb in fibonacci_generator(20):
     print(fibb)
+
 
 # Task 2
 
@@ -24,15 +28,17 @@ class IterNumbers:
     def __init__(self, n):
         self.n = n
         self.current = 1
+
     def __iter__(self):
         return self
+
     def __next__(self):
         if self.current > self.n:
             raise StopIteration
-
         data = self.current
         self.current += 2
         return data
+
 
 n = 22
 e_iter = IterNumbers(n)
@@ -40,12 +46,15 @@ e_iter = IterNumbers(n)
 for n in e_iter:
     print(n)
 
+
 class IterNumbers_1:
     def __init__(self, my_list):
         self.my_list = my_list
         self.index = len(my_list) - 1
+
     def __iter__(self):
         return self
+
     def __next__(self):
         if self.index < 0:
             raise StopIteration
@@ -59,12 +68,12 @@ e_iter = IterNumbers_1(my_list)
 
 for n in e_iter:
     print(n)
-#
+
+
 # Task 3
 
 def my_decorator(func):
     def wrapper(*args, **kwargs):
-
         print(f"Here is the input argument: {args[0] if args else kwargs}")
         result = func(*args, **kwargs)
         print(f"Here is the result: {result}")
@@ -80,7 +89,9 @@ def reverse_word(word):
         revers = k + revers
     return revers
 
+
 reverse_word("plant")
+
 
 def exceptions(func):
     def wrapper(*args, **kwargs):
@@ -99,6 +110,7 @@ def incorrect(word):
     for k in word:
         revers = k + revers
     return revers
+
 
 result_err = incorrect(12345)
 print(result_err)

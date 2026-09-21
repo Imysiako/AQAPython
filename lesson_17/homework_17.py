@@ -9,15 +9,14 @@ def even_numbers(n):
 for item in even_numbers(10):
     print(item)
 
-def fibonacci_generator():
+def fibonacci_generator(max_v):
     a, b = 0, 1
-    while True:
+    while a <= max_v:
         yield a
         a, b = b, a + b
 
-fibb = fibonacci_generator()
-for g in range(20):
-    print(next(fibb))
+for fibb in fibonacci_generator(20):
+    print(fibb)
 
 # Task 2
 

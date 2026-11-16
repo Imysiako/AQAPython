@@ -1,0 +1,47 @@
+pipeline {
+    agent any
+
+    stages {
+        stage('Checkout') {
+            steps {
+                git branch: 'main', url: 'https://github.com/Imysiako/AQAPython.git'
+            }
+        }
+
+        stage('Cleanup and prepare venv') {
+            steps {
+                sh '''
+                    rm -rf allure-results allure-report
+                    python3 -m venv venv
+                '''
+            }
+        }
+
+        stage('Install requirements') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    pip install --upgrade pip
+                    pip install pytest allure-pytest
+                    # якщо є файл залежностей:
+                    # pip install -r requirements.txt
+                '''
+            }
+        }
+
+        stage('Run tests') {
+            steps {
+                sh '''
+                    . venv/bin/activate
+                    pytest --alluredir=allure-results || true
+                '''
+            }
+        }
+    }
+
+    post {
+        always {
+            allure includeProperties: false, jdk: '', results: [[path: 'allure-results']]
+        }
+    }
+}
